@@ -11,7 +11,7 @@ const Home = ({resolutions,setResolutions}) => {
       setResolutions(res.data); 
     })
     .catch(err=>console.log(err))
-  },[])
+  },[setResolutions])
   return (
     <div>
       <div className='d-flex justify-content-between'>
@@ -29,10 +29,10 @@ const Home = ({resolutions,setResolutions}) => {
         </thead>
         <tbody>
           {resolutions.map((resolution,index) => {
-            return <tr>
+            return <tr key={index}>
               <td>{resolution.name}</td>
               <td>{resolution.type}</td>
-              <td>INFO | UPDATE </td>
+              <td><Link to={`/resolutions/${resolution._id}`}>INFO</Link> | <Link to={`/resolutions/${resolution._id}/edit`}>UPDATE</Link> </td>
               </tr>
           })}
         </tbody>

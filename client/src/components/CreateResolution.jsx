@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'; 
 
 const CreateResolution = (props) => {
-  const {resolutions,setResolutions} = props;
+  const {resolutions,setResolutions,errors,setErrors} = props;
   const [name,setName] = useState(""); 
   const [type,setType] = useState("");
   const [description,setDescription] = useState(""); 
+  const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
     axios.post('http://localhost:8000/api/resolution', {
@@ -18,6 +19,10 @@ const CreateResolution = (props) => {
       console.log(res);
       console.log(res.data); 
       setResolutions([...resolutions,res.data])
+      navigate("/")
+    })
+    .catch((err)=>{
+      console.log(err)
     })
   }
   return (
