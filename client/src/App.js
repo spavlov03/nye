@@ -10,9 +10,7 @@ import UpdateResolution from './components/UpdateResolution';
 function App() {
   const [resolutions,setResolutions] = useState([]); 
   
-  // const removeFromDom = resolutionId => {
-  //   setResolutions(resolutions.filter(resolution => resolution._id !== resolutionId))
-  // }
+
   return (
     <div className="App">
       <BrowserRouter>

@@ -19,7 +19,7 @@ const Home = ({resolutions,setResolutions}) => {
         <Link className='me-5 mt-3' to="/resolutions/new">Create</Link>
       </div>
       <h3 className=''>These are the creatures that make Christmas magic happen...</h3> 
-      <table className='table table-bordered'>
+      <table className='table table-bordered w-75 m-5'>
         <thead>
           <tr>
             <th>Name</th>

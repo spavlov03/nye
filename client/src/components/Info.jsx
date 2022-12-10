@@ -4,10 +4,17 @@ import { Link,useParams,useNavigate } from 'react-router-dom'
 
 
 
-const Info = ({removeFromDom}) => {
+const Info = () => {
   const [resolution,setResolution] = useState({}); 
   const {id} = useParams();
   const navigate = useNavigate();
+  const [likes,setLikes] = useState(0);
+  const [disable,setDisable]=useState(false);
+  const addLike = () => { 
+    setLikes(likes+1); 
+    setDisable(true)
+    
+  }
 
   useEffect(()=> { 
     axios.get(`http://localhost:8000/api/resolution/${id}`)
@@ -33,6 +40,7 @@ const Info = ({removeFromDom}) => {
       <div className='d-flex w-50'>
         <h2 className='text-start ms-3 w-100'>{resolution.name}</h2>
         <button className='flex-shrink-1 btn btn-outline-danger' onClick={DeleteResolution}>Delete</button>
+        <Link className='btn btn-outline-warning ms-2' to={`/resolutions/${resolution._id}/edit`}>Edit</Link>
       </div>
       <table className='table table-bordered w-50 m-2'>
         <tbody>
@@ -46,10 +54,18 @@ const Info = ({removeFromDom}) => {
           </tr>
           <tr>
             <td>Rewards</td>
-            <td>{resolution.rewards}</td>
+            <td>
+              <p>{resolution.reward1}</p>
+              <p>{resolution.reward2}</p> 
+              <p>{resolution.reward3}</p>
+            </td>
           </tr>
         </tbody>
       </table>
+      <div className='d-flex m-5'>
+        <button className='btn btn-success' onClick={addLike} disabled={disable}>Like</button>
+        <span>{likes} like(s)</span>
+      </div>
     </div>
   )
 }
