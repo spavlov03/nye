@@ -42,7 +42,7 @@ const CreateResolution = (props) => {
     <div>
       <div className='d-flex justify-content-between'>
         <h1 className='m-3 text-start'>New Years Resolutions</h1>
-        <Link className='me-5 mt-3' to="/" >Home</Link>
+        <Link className='me-5 mt-3 link home' to="/" >Home</Link>
       </div>
       <h3 className='ms-4 text-start'>Think of anoter way to be awesome?</h3> 
       <form className='w-100 d-flex' onSubmit={submitHandler} >

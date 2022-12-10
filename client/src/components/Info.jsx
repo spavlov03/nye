@@ -35,12 +35,12 @@ const Info = () => {
     <div>
       <div className='d-flex justify-content-between'>
         <h1 className='m-3 text-start'>New Years Resolutions</h1>
-        <Link className='me-5 mt-3' to="/">Home</Link>
+        <Link className='me-5 mt-3 link' to="/">Home</Link>
       </div>
       <div className='d-flex w-50'>
         <h2 className='text-start ms-3 w-100'>{resolution.name}</h2>
-        <button className='flex-shrink-1 btn btn-outline-danger' onClick={DeleteResolution}>Delete</button>
-        <Link className='btn btn-outline-warning ms-2' to={`/resolutions/${resolution._id}/edit`}>Edit</Link>
+        <button className='delete flex-shrink-1 btn btn-outline-danger' onClick={DeleteResolution}>Delete</button>
+        <Link className='btn btn-outline-warning ms-2 edit' to={`/resolutions/${resolution._id}/edit`}>Edit</Link>
       </div>
       <table className='table table-bordered w-50 m-2'>
         <tbody>
@@ -63,8 +63,8 @@ const Info = () => {
         </tbody>
       </table>
       <div className='d-flex m-5'>
-        <button className='btn btn-success' onClick={addLike} disabled={disable}>Like</button>
-        <span>{likes} like(s)</span>
+        <button className='like btn btn-success me-2' onClick={addLike} disabled={disable}>Like</button>
+        <p className='m-2' >{likes} like(s)</p>
       </div>
     </div>
   )

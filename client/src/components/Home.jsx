@@ -16,7 +16,7 @@ const Home = ({resolutions,setResolutions}) => {
     <div>
       <div className='d-flex justify-content-between'>
         <h1 className='m-3 text-start'>New Years Resolutions</h1>
-        <Link className='me-5 mt-3' to="/resolutions/new">Create</Link>
+        <Link className='me-5 mt-3 link' to="/resolutions/new">Create</Link>
       </div>
       <h3 className=''>These are the creatures that make Christmas magic happen...</h3> 
       <table className='table table-bordered w-75 m-5'>
@@ -32,7 +32,7 @@ const Home = ({resolutions,setResolutions}) => {
             return <tr key={index}>
               <td>{resolution.name}</td>
               <td>{resolution.type}</td>
-              <td><Link to={`/resolutions/${resolution._id}`}>INFO</Link> | <Link to={`/resolutions/${resolution._id}/edit`}>UPDATE</Link> </td>
+              <td><Link className="link" to={`/resolutions/${resolution._id}`}>INFO</Link> | <Link className='link' to={`/resolutions/${resolution._id}/edit`}>UPDATE</Link> </td>
               </tr>
           })}
         </tbody>

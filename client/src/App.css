@@ -1,10 +1,29 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+body { 
+  background-color: rebeccapurple;
+}
+div { 
+  color: aliceblue;
+}
+th, td { 
+  color: rgb(52, 255, 72);
+}
+.link { 
+  color: orange;
+  text-decoration: solid;
+  font-weight: bold;
+}
+.edit , .delete , .like{ 
+  height: 40px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
