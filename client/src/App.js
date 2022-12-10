@@ -9,7 +9,7 @@ import UpdateResolution from './components/UpdateResolution';
 
 function App() {
   const [resolutions,setResolutions] = useState([]); 
-  const [errors,setErrors] = useState([]); 
+  
   // const removeFromDom = resolutionId => {
   //   setResolutions(resolutions.filter(resolution => resolution._id !== resolutionId))
   // }
@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Home resolutions={resolutions} setResolutions={setResolutions}/>} path="/"/>
-          <Route element={<CreateResolution resolutions={resolutions} setResolutions={setResolutions} errors={errors} setErrors={setErrors}/>} path="/resolutions/new"/>
+          <Route element={<CreateResolution resolutions={resolutions} setResolutions={setResolutions} />} path="/resolutions/new"/>
           <Route element={<Info /> } path="/resolutions/:id" />
           <Route element={<UpdateResolution />} path="/resolutions/:id/edit" />
         </Routes>

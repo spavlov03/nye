@@ -6,6 +6,7 @@ const UpdateResolution = (props) => {
   const [name,setName] = useState(""); 
   const [type,setType] = useState("");
   const [description,setDescription] = useState(""); 
+  const [errors,setErrors] = useState({});
   const {id} = useParams();
   const navigate = useNavigate();
 
@@ -31,6 +32,10 @@ const UpdateResolution = (props) => {
       console.log(res.data);
       navigate("/")
     })
+    .catch((err)=>{
+      console.log(err)
+      setErrors(err.response.data.errors)
+    })
   }
   return (
     <div>
@@ -42,10 +47,13 @@ const UpdateResolution = (props) => {
       <form className='w-50' onSubmit={submitHandler} >
         <label className='form-label'>Name:</label>
         <input className='form-control' type="text" value={name} name='name' onChange={(e)=>setName(e.target.value)}/>
+        {errors.name ? <p>{errors.name.message}</p> : null}
         <label className='form-label'>Type:</label>
         <input className='form-control' type="text" value={type} name='type' onChange={(e)=>setType(e.target.value)}/>
+        {errors.type && <p>{errors.type.message}</p>}
         <label className='form-label'>Description:</label>
         <input className='form-control' type="text" value={description} name='description' onChange={(e)=>setDescription(e.target.value)}/>
+        {errors.description && <p>{errors.description.message}</p>}
         <input className='btn btn-warning mt-3 w-75' type="submit" value="Edit" />
       </form>
     </div>

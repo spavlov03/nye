@@ -14,7 +14,14 @@ const ResolutionSchema = mongoose.Schema({
     type:String,
     minLength: [3,"Description must be at least 3 characters"], 
     required: [true,"Description is required"]  
-  } 
+  } ,
+  rewards: {
+    type: String,
+    required: [true, 'Tell me something cool!'],
+    uniqueItems: true,
+    // minItems:2
+    // minItems: {value: 1, message: 'Tell me more than 1'}
+}
   
 },{timestamps:true}); 
 
